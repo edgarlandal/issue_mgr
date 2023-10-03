@@ -1,0 +1,22 @@
+# Django
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Local development
+*.env
+local_settings.py
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.bak
+*.swp
+*.cfg
+
+env/
+venv/
