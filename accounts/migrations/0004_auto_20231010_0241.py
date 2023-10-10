@@ -9,7 +9,9 @@ def populate_role(apps, schemaeditor):
         "scrum master": "The development team's coach",
         "product owner": "A team member who defines tasks",
     }
+
     Role = apps.get_model("accounts", "Role")
+
     for key, value in entries.items():
         role_obj = Role(name=key, description=value)
         role_obj.save()
@@ -22,7 +24,9 @@ def populate_team(apps, schemaeditor):
         "charlie": "The C team",
         "delta": "The D team",
     }
+
     Team = apps.get_model("accounts", "Team")
+
     for key, value in entries.items():
         team_obj = Team(name=key, description=value)
         team_obj.save()

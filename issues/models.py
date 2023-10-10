@@ -1,14 +1,23 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+
 # Create your models here.
+
+
+class Priority(models.Model):
+    name = models.CharField(max_length=128)
+    description = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
 
 
 class Status(models.Model):
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=256)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 
@@ -23,6 +32,8 @@ class Issue(models.Model):
         blank=True,
         null=True,
     )
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
+    priority = models.ForeignKey(Priority, on_delete=models.CASCADE, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def _str_(self):

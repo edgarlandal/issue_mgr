@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Issues {% endblock title %}
+
+{% block content %}
+{% block style %}
+    <style>
+        li{  
+            list-style:none
+        }
+    </style>
+{% endblock style %}
+
+<h1>Issues To do</h1>
+<ul>
+    {% for issue in todo_issue_list %}
+        <li class="m-3 ">
+            <div class="card text-center">
+                <div class="card-header">
+                    Issue to do
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ issue.summary}}</h5>
+                  <p class="card-text">{{ issue.description }}</p>
+                </div>
+                <div class="card-footer text-muted" >
+                  <div class="d-flex justify-content-around ">
+                    <p>Reporter by: {{ issue.reporter }}</p>
+                    <p>Assignee by: {{ issue.assignee }}</p>
+
+                    <p>Priority: {{ issue.priority }}</p>
+
+                  </div>
+                </div>
+              </div>
+        </li>
+    {% endfor %}
+</ul>
+
+
+<h1>Issues In Progress</h1>
+<ul>
+    {% for issue in inprogress_issue_list %}
+        <li class="m-3 "> 
+            <div class="card text-center">
+                <div class="card-header">
+                    Issue In Progress
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ issue.summary}}</h5>
+                  <p class="card-text">{{ issue.description }}</p>
+                </div>
+                <div class="card-footer text-muted" >
+                  <div class="d-flex justify-content-around ">
+                    <p>Reporter by: {{ issue.reporter }}</p>
+                    <p>Assignee by: {{ issue.assignee }}</p>
+
+                    <p>Priority: {{ issue.priority }}</p>
+
+                  </div>
+                </div>
+              </div>    
+        </li>
+    {% endfor %}
+</ul>
+
+
+<h1>Issues Done</h1>
+<ul>
+    {% for issue in done_issue_list %}
+        <li class="m-3 ">
+            <div class="card text-center">
+                <div class="card-header">
+                    Issue Done
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ issue.summary}}</h5>
+                  <p class="card-text">{{ issue.description }}</p>
+                </div>
+                <div class="card-footer text-muted" >
+                  <div class="d-flex justify-content-around ">
+                    <p>Reporter by: {{ issue.reporter }}</p>
+                    <p>Assignee by: {{ issue.assignee }}</p>
+
+                    <p>Priority: {{ issue.priority }}</p>
+
+                  </div>
+                </div>
+              </div>    
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
